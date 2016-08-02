@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -I.
+CFLAGS = -I. -std=c99
 DEPS = calculator.h
 OBJ = calculator.o calculator_test.o 
 LIBS = -lcheck -pthread -lrt -lm

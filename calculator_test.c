@@ -13,6 +13,11 @@ START_TEST(when_is_valid_roman_numeral_is_passed_one_digit_correct_response_retu
     ck_assert_int_eq(is_valid_roman_numeral("C"), true);
     ck_assert_int_eq(is_valid_roman_numeral("D"), true);
     ck_assert_int_eq(is_valid_roman_numeral("M"), true);
+
+    ck_assert_int_eq(is_valid_roman_numeral("A"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("B"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("E"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("F"), false);
 }
 END_TEST
 

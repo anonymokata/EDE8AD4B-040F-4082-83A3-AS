@@ -18,6 +18,10 @@ START_TEST(when_is_valid_roman_numeral_is_passed_one_digit_correct_response_retu
     ck_assert_int_eq(is_valid_roman_numeral("B"), false);
     ck_assert_int_eq(is_valid_roman_numeral("E"), false);
     ck_assert_int_eq(is_valid_roman_numeral("F"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("1"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("5"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("9"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("0"), false);
 }
 END_TEST
 
@@ -35,6 +39,9 @@ START_TEST(when_is_valid_roman_numeral_is_passed_multiple_digits_correct_respons
     ck_assert_int_eq(is_valid_roman_numeral("vii"), false);
     ck_assert_int_eq(is_valid_roman_numeral("xxx"), false);
     ck_assert_int_eq(is_valid_roman_numeral("dd"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("12"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("-1005"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("123.34"), false);
 }
 END_TEST
 

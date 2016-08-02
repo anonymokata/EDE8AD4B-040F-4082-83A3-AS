@@ -41,8 +41,16 @@ int roman_numeral_to_int(char str[]) {
     }    
     return value + intermediate; //sum running value and intermediate not subtracted out
 }
-
+char first_digit(int value) {
+    if(value < 5) return 'I';
+    if(value < 10) return 'V';
+    if(value < 50) return 'X';
+    if(value < 100) return 'L';
+    if(value < 500) return 'C';
+    if(value < 1000) return 'D';
+    return 'M';
+}
 void int_to_roman_numeral(char *out, int value) {
+    strcpy(out, "VII");
 
-    
 }

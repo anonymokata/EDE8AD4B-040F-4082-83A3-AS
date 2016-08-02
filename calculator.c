@@ -11,5 +11,8 @@ bool is_valid_roman_numeral(char str[]) {
 }
 
 int roman_numeral_to_int(char str[]) {
+    if(is_valid_roman_numeral(str) == false)
+        return -1;
+        
     return 0;
 }

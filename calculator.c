@@ -41,3 +41,8 @@ int roman_numeral_to_int(char str[]) {
     }    
     return value + intermediate; //sum running value and intermediate not subtracted out
 }
+
+void int_to_roman_numeral(char *out, int value) {
+
+    
+}

@@ -41,6 +41,7 @@ int roman_numeral_to_int(char str[]) {
     }    
     return value + intermediate; //sum running value and intermediate not subtracted out
 }
+
 char first_digit(int value) {
     if(value < 5) return 'I';
     if(value < 10) return 'V';

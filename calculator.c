@@ -9,3 +9,7 @@ bool is_valid_roman_numeral(char str[]) {
             return false; //fail early
     return true;
 }
+
+int roman_numeral_to_int(char str[]) {
+    return 0;
+}

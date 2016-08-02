@@ -45,6 +45,17 @@ START_TEST(when_is_valid_roman_numeral_is_passed_multiple_digits_correct_respons
 }
 END_TEST
 
+START_TEST(when_roman_numeral_to_int_is_passed_value_correct_response_returned)
+{
+    ck_assert_int_eq(roman_numeral_to_int("VI"), 6);
+    ck_assert_int_eq(roman_numeral_to_int("IV"), 4);
+    ck_assert_int_eq(roman_numeral_to_int("XXX"), 30);
+    ck_assert_int_eq(roman_numeral_to_int("XVI"), 16);
+    ck_assert_int_eq(roman_numeral_to_int("MI"), 1001);
+    ck_assert_int_eq(roman_numeral_to_int("VLID"), 544);
+}
+END_TEST
+
 Suite *roman_numeral_calculator_suite(void)
 {
     Suite *test_suite = suite_create("Roman Numeral Calculator");
@@ -52,6 +63,7 @@ Suite *roman_numeral_calculator_suite(void)
 
     tcase_add_test(tc_core, when_is_valid_roman_numeral_is_passed_one_digit_correct_response_returned);
     tcase_add_test(tc_core, when_is_valid_roman_numeral_is_passed_multiple_digits_correct_response_returned);
+    tcase_add_test(tc_core, when_roman_numeral_to_int_is_passed_value_correct_response_returned);
     suite_add_tcase(test_suite, tc_core);
 
     return test_suite;

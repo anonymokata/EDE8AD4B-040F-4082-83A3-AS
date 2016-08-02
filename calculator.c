@@ -39,5 +39,5 @@ int roman_numeral_to_int(char str[]) {
         }
         last_digit = current_digit;
     }    
-    return value + intermediate;
+    return value + intermediate; //sum running value and intermediate not subtracted out
 }

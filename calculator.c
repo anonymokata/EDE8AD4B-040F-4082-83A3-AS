@@ -27,11 +27,17 @@ int roman_numeral_to_int(char str[]) {
     if(is_valid_roman_numeral(str) == false)
         return -1;
     int value = 0;
-    int subtract = 0; //intermediate value used to calculate subtractions
+    int intermediate = 0; //intermediate value used in case subtraction is needed
+    int last_digit = 0;
     for(int i = 0; i < strlen(str); ++i) {
-        value += roman_numeral_digit_value(str[i]);
-        //if(i < strlen(str) - 1) //check to see if need to subtract instead
-
+        int current_digit = roman_numeral_digit_value(str[i]);
+        if(current_digit > last_digit && i > 0) {
+            value += current_digit - intermediate;
+            intermediate = 0;
+        } else {
+            intermediate += current_digit;
+        }
+        last_digit = current_digit;
     }    
-    return value;
+    return value + intermediate;
 }

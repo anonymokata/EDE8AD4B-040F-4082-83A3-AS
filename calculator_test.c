@@ -66,7 +66,6 @@ END_TEST
 START_TEST(when_roman_numeral_to_int_is_passed_value_correct_response_returned)
 {
     ck_assert_int_eq(roman_numeral_to_int("VI"), 6);
-    ck_assert_int_eq(roman_numeral_to_int("VI"), 6);
     ck_assert_int_eq(roman_numeral_to_int("IV"), 4);
     ck_assert_int_eq(roman_numeral_to_int("XXX"), 30);
     ck_assert_int_eq(roman_numeral_to_int("XVI"), 16);

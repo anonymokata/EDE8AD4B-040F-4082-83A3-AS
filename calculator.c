@@ -7,17 +7,19 @@ int count_occurrences(const char *str, const char c) {
     char *current = (char*)str;
     int occurrences = 0;
     while(*current != '\0') {
-        occurrences += *(current++) == c;
+        occurrences += *current++ == c;
     }
     return occurrences;
 }
 
 bool is_roman_numeral_valid(const char *str) {
     char valid_chars[] = "IVXLCDM";
-
-    for(int i = 0; i < strlen(str); ++i)
-        if(strchr(valid_chars, str[i]) == NULL)
+    char *current = (char*)str;
+    
+    while(*current != '\0')
+        if(strchr(valid_chars, *current++) == NULL)
             return false; //fail early
+
     if(count_occurrences(str, 'I') > 3) return false;
     if(count_occurrences(str, 'X') > 3) return false;
     if(count_occurrences(str, 'C') > 3) return false;

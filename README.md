@@ -6,7 +6,7 @@ Develop an C library for performing basic arithmetic operations on Roman Numeral
 * **libcheck** ```sudo apt install check``` on Ubuntu/Debian
 
 ## running the tests
-```
+```bash
 git clone https://github.com/stevensona/RomanNumeralCalculator.git
 cd RomanNumeralCalculator
 make

@@ -37,8 +37,8 @@ START_TEST(when_is_valid_roman_numeral_is_passed_multiple_digits_correct_respons
     ck_assert_int_eq(is_valid_roman_numeral("This should be invalid"), false);
     ck_assert_int_eq(is_valid_roman_numeral("INVALID"), false);
     ck_assert_int_eq(is_valid_roman_numeral("vii"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("xxx"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("dd"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("xxx "), false);
+    ck_assert_int_eq(is_valid_roman_numeral("d?d"), false);
     ck_assert_int_eq(is_valid_roman_numeral("12"), false);
     ck_assert_int_eq(is_valid_roman_numeral("-1005"), false);
     ck_assert_int_eq(is_valid_roman_numeral("123.34"), false);

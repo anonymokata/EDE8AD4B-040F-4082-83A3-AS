@@ -6,11 +6,11 @@
 #include <check.h>
 #include "calculator.h"
 
-START_TEST(can_count_max_number_of_occurrences_in_string)
+START_TEST(can_count_max_number_of_consecutive_occurrences_in_string)
 {
-    ck_assert_int_eq(max_occurrences("123", '1'), 1);
-    ck_assert_int_eq(max_occurrences("123", '0'), 0);
-    ck_assert_int_eq(max_occurrences("123123", '2'), 2);
+    ck_assert_int_eq(max_consecutive("123", '1'), 1);
+    ck_assert_int_eq(max_consecutive("123", '0'), 0);
+    ck_assert_int_eq(max_consecutive("123123", '2'), 2);
 }
 END_TEST
 
@@ -176,7 +176,7 @@ Suite *roman_numeral_calculator_suite(void)
     Suite *test_suite = suite_create("Roman Numeral Calculator");
     TCase *tc_core = tcase_create("Core");
 
-    tcase_add_test(tc_core, can_count_max_number_of_occurrences_in_string);
+    tcase_add_test(tc_core, can_count_max_number_of_consecutive_occurrences_in_string);
     tcase_add_test(tc_core, when_is_roman_numeral_valid_is_passed_one_digit_correct_response_returned);
     tcase_add_test(tc_core, when_is_roman_numeral_valid_is_passed_multiple_digits_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_digit_value_is_passed_value_correct_response_returned);

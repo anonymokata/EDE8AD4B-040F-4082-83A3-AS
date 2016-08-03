@@ -3,7 +3,7 @@
 
 #include "calculator.h"
 
-int max_occurrences(const char *str, const char c) {
+int max_consecutive(const char *str, const char c) {
     char *current = (char*)str;
     int occurrences = 0;
     while(*current != '\0') {
@@ -20,12 +20,12 @@ bool is_roman_numeral_valid(const char *str) {
         if(strchr(valid_chars, *current++) == NULL)
             return false; //fail early
 
-    if(max_occurrences(str, 'I') > 3) return false;
-    if(max_occurrences(str, 'X') > 3) return false;
-    if(max_occurrences(str, 'C') > 3) return false;
-    if(max_occurrences(str, 'L') > 1) return false;
-    if(max_occurrences(str, 'V') > 1) return false;
-    if(max_occurrences(str, 'D') > 1) return false;
+    if(max_consecutive(str, 'I') > 3) return false;
+    if(max_consecutive(str, 'X') > 3) return false;
+    if(max_consecutive(str, 'C') > 3) return false;
+    if(max_consecutive(str, 'L') > 1) return false;
+    if(max_consecutive(str, 'V') > 1) return false;
+    if(max_consecutive(str, 'D') > 1) return false;
 
     return true;
 }

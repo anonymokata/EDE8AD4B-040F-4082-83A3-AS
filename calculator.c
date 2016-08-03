@@ -12,7 +12,7 @@ int count_occurrences(const char *str, const char c) {
     return occurrences;
 }
 
-bool is_valid_roman_numeral(const char *str) {
+bool is_roman_numeral_valid(const char *str) {
     char valid_chars[] = "IVXLCDM";
 
     for(int i = 0; i < strlen(str); ++i)
@@ -43,7 +43,7 @@ int roman_numeral_digit_value(const char digit) {
 }
 
 int roman_numeral_to_int(const char *str) {
-    if(is_valid_roman_numeral(str) == false)
+    if(is_roman_numeral_valid(str) == false)
         return -1;
     int value = 0;
     int last_digit = 0;

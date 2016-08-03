@@ -12,51 +12,51 @@ START_TEST(can_count_number_of_occurrences_in_string)
 }
 END_TEST
 
-START_TEST(when_is_valid_roman_numeral_is_passed_one_digit_correct_response_returned)
+START_TEST(when_is_roman_numeral_valid_is_passed_one_digit_correct_response_returned)
 {
-    ck_assert_int_eq(is_valid_roman_numeral("I"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("V"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("X"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("L"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("C"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("D"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("M"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("I"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("V"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("X"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("L"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("C"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("D"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("M"), true);
 
-    ck_assert_int_eq(is_valid_roman_numeral("A"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("B"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("E"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("F"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("1"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("5"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("9"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("0"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("A"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("B"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("E"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("F"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("1"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("5"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("9"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("0"), false);
 }
 END_TEST
 
-START_TEST(when_is_valid_roman_numeral_is_passed_multiple_digits_correct_response_returned)
+START_TEST(when_is_roman_numeral_valid_is_passed_multiple_digits_correct_response_returned)
 {
-    ck_assert_int_eq(is_valid_roman_numeral("VI"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("IV"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("XXX"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("XVI"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("MI"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("DXLIV"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("VI"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("IV"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("XXX"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("XVI"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("MI"), true);
+    ck_assert_int_eq(is_roman_numeral_valid("DXLIV"), true);
 
-    ck_assert_int_eq(is_valid_roman_numeral("IIII"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("XXXX"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("CCCC"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("LL"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("VV"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("DD"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("IIII"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("XXXX"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("CCCC"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("LL"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("VV"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("DD"), false);
 
-    ck_assert_int_eq(is_valid_roman_numeral("This should be invalid"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("INVALID"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("vii"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("xxx "), false);
-    ck_assert_int_eq(is_valid_roman_numeral("d?d"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("12"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("-1005"), false);
-    ck_assert_int_eq(is_valid_roman_numeral("123.34"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("This should be invalid"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("INVALID"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("vii"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("xxx "), false);
+    ck_assert_int_eq(is_roman_numeral_valid("d?d"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("12"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("-1005"), false);
+    ck_assert_int_eq(is_roman_numeral_valid("123.34"), false);
 }
 END_TEST
 
@@ -152,8 +152,8 @@ Suite *roman_numeral_calculator_suite(void)
     TCase *tc_core = tcase_create("Core");
 
     tcase_add_test(tc_core, can_count_number_of_occurrences_in_string);
-    tcase_add_test(tc_core, when_is_valid_roman_numeral_is_passed_one_digit_correct_response_returned);
-    tcase_add_test(tc_core, when_is_valid_roman_numeral_is_passed_multiple_digits_correct_response_returned);
+    tcase_add_test(tc_core, when_is_roman_numeral_valid_is_passed_one_digit_correct_response_returned);
+    tcase_add_test(tc_core, when_is_roman_numeral_valid_is_passed_multiple_digits_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_digit_value_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_to_int_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_to_int_is_passed_invalid_value_correct_response_returned);

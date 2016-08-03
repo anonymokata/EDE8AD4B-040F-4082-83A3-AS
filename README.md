@@ -5,8 +5,8 @@ Develop an C library for performing basic arithmetic operations on Roman Numeral
 ## functions
 
 ```c 
-void add_roman_numerals(char *out, const char *first, const char *second);
-void subtract_roman_numerals(char *out, const char *first, const char *second);
+void add_roman_numerals(char *result, const char *first, const char *second);
+void subtract_roman_numerals(char *result, const char *first, const char *second);
 ```
 
 ## future improvements

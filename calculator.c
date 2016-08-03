@@ -80,27 +80,27 @@ const char* next_roman_digit(const int value) {
     return "I";
 }
 
-void int_to_roman_numeral(char *out, int value) {
+void int_to_roman_numeral(char *result, int value) {
     int current_pos = 0;
-    strcpy(out, "undefined");
+    strcpy(result, "undefined");
     while(value > 0) {
         const char *next = next_roman_digit(value);
         value -= roman_numeral_to_int(next);
-        strncpy(&out[current_pos], next, strlen(next));
+        strncpy(&result[current_pos], next, strlen(next));
         current_pos += strlen(next);
-        strcpy(&out[current_pos], "\0");
+        strcpy(&result[current_pos], "\0");
     }
    
 }
 
-void add_roman_numerals(char *out, const char *first, const char *second) {
-    strcpy(out, "undefined");
+void add_roman_numerals(char *result, const char *first, const char *second) {
+    strcpy(result, "undefined");
     if(is_roman_numeral_valid(first) && is_roman_numeral_valid(second))
-        int_to_roman_numeral(out, roman_numeral_to_int(first) + roman_numeral_to_int(second));
+        int_to_roman_numeral(result, roman_numeral_to_int(first) + roman_numeral_to_int(second));
 }
 
-void subtract_roman_numerals(char *out, const char *first, const char *second) {
-    strcpy(out, "undefined");
+void subtract_roman_numerals(char *result, const char *first, const char *second) {
+    strcpy(result, "undefined");
     if(is_roman_numeral_valid(first) && is_roman_numeral_valid(second))
-        int_to_roman_numeral(out, roman_numeral_to_int(first) - roman_numeral_to_int(second));
+        int_to_roman_numeral(result, roman_numeral_to_int(first) - roman_numeral_to_int(second));
 }

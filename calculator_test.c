@@ -113,39 +113,39 @@ END_TEST
 
 START_TEST(when_int_to_roman_numeral_is_passed_value_correct_response_returned)
 {
-    char out[16];
-    int_to_roman_numeral(out, 7); ck_assert_str_eq(out, "VII");
-    int_to_roman_numeral(out, 3); ck_assert_str_eq(out, "III");
-    int_to_roman_numeral(out, 1); ck_assert_str_eq(out, "I");
-    int_to_roman_numeral(out, 16); ck_assert_str_eq(out, "XVI");
-    int_to_roman_numeral(out, 0); ck_assert_str_eq(out, "undefined");
-    int_to_roman_numeral(out, 540); ck_assert_str_eq(out, "DXL");
-    int_to_roman_numeral(out, 541); ck_assert_str_eq(out, "DXLI");
-    int_to_roman_numeral(out, 44); ck_assert_str_eq(out, "XLIV");
-    int_to_roman_numeral(out, 144); ck_assert_str_eq(out, "CXLIV");
-    int_to_roman_numeral(out, 544); ck_assert_str_eq(out, "DXLIV");
+    char result[16];
+    int_to_roman_numeral(result, 7); ck_assert_str_eq(result, "VII");
+    int_to_roman_numeral(result, 3); ck_assert_str_eq(result, "III");
+    int_to_roman_numeral(result, 1); ck_assert_str_eq(result, "I");
+    int_to_roman_numeral(result, 16); ck_assert_str_eq(result, "XVI");
+    int_to_roman_numeral(result, 0); ck_assert_str_eq(result, "undefined");
+    int_to_roman_numeral(result, 540); ck_assert_str_eq(result, "DXL");
+    int_to_roman_numeral(result, 541); ck_assert_str_eq(result, "DXLI");
+    int_to_roman_numeral(result, 44); ck_assert_str_eq(result, "XLIV");
+    int_to_roman_numeral(result, 144); ck_assert_str_eq(result, "CXLIV");
+    int_to_roman_numeral(result, 544); ck_assert_str_eq(result, "DXLIV");
     
 }
 END_TEST
 
 START_TEST(can_add_roman_numerals)
 {
-    char out[16];
+    char result[16];
 
-    add_roman_numerals(out, "I", "I"); ck_assert_str_eq(out, "II");
-    add_roman_numerals(out, "II", "II"); ck_assert_str_eq(out, "IV");
-    add_roman_numerals(out, "D", "D"); ck_assert_str_eq(out, "M");
+    add_roman_numerals(result, "I", "I"); ck_assert_str_eq(result, "II");
+    add_roman_numerals(result, "II", "II"); ck_assert_str_eq(result, "IV");
+    add_roman_numerals(result, "D", "D"); ck_assert_str_eq(result, "M");
     
 }
 END_TEST
 
 START_TEST(can_subtract_roman_numerals)
 {
-    char out[16];
+    char result[16];
 
-    subtract_roman_numerals(out, "I", "I"); ck_assert_str_eq(out, "undefined");
-    subtract_roman_numerals(out, "X", "IV"); ck_assert_str_eq(out, "VI");
-    subtract_roman_numerals(out, "C", "L"); ck_assert_str_eq(out, "L");
+    subtract_roman_numerals(result, "I", "I"); ck_assert_str_eq(result, "undefined");
+    subtract_roman_numerals(result, "X", "IV"); ck_assert_str_eq(result, "VI");
+    subtract_roman_numerals(result, "C", "L"); ck_assert_str_eq(result, "L");
     
 }
 END_TEST

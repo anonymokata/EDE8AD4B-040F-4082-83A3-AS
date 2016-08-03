@@ -99,6 +99,17 @@ START_TEST(when_int_to_roman_numeral_is_passed_value_correct_response_returned)
 }
 END_TEST
 
+START_TEST(can_add_roman_numerals)
+{
+    char out[16];
+
+    add_roman_numerals(out, "I", "I"); ck_assert_str_eq(out, "II");
+    add_roman_numerals(out, "II", "II"); ck_assert_str_eq(out, "IV");
+    add_roman_numerals(out, "D", "D"); ck_assert_str_eq(out, "M");
+    
+}
+END_TEST
+
 Suite *roman_numeral_calculator_suite(void)
 {
     Suite *test_suite = suite_create("Roman Numeral Calculator");
@@ -111,6 +122,7 @@ Suite *roman_numeral_calculator_suite(void)
     tcase_add_test(tc_core, when_roman_numeral_to_int_is_passed_invalid_value_correct_response_returned);
     tcase_add_test(tc_core, when_next_roman_digit_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, when_int_to_roman_numeral_is_passed_value_correct_response_returned);
+    tcase_add_test(tc_core, can_add_roman_numerals);
     suite_add_tcase(test_suite, tc_core);
 
     return test_suite;

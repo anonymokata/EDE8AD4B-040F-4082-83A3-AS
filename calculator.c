@@ -76,3 +76,8 @@ void int_to_roman_numeral(char *out, int value) {
 void add_roman_numerals(char *out, const char *first, const char *second) {
     int_to_roman_numeral(out, roman_numeral_to_int(first) + roman_numeral_to_int(second));
 }
+
+
+void subtract_roman_numerals(char *out, const char *first, const char *second) {
+    int_to_roman_numeral(out, roman_numeral_to_int(first) - roman_numeral_to_int(second));
+}

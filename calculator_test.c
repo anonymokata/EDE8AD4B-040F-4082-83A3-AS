@@ -6,11 +6,11 @@
 #include <check.h>
 #include "calculator.h"
 
-START_TEST(can_count_number_of_occurrences_in_string)
+START_TEST(can_count_max_number_of_occurrences_in_string)
 {
-    ck_assert_int_eq(count_occurrences("123", '1'), 1);
-    ck_assert_int_eq(count_occurrences("123", '0'), 0);
-    ck_assert_int_eq(count_occurrences("123123", '2'), 2);
+    ck_assert_int_eq(max_occurrences("123", '1'), 1);
+    ck_assert_int_eq(max_occurrences("123", '0'), 0);
+    ck_assert_int_eq(max_occurrences("123123", '2'), 2);
 }
 END_TEST
 
@@ -155,14 +155,17 @@ START_TEST(can_handle_random_inputs)
     for(int i = 0; i < 1000; ++i) {
         int a = rand() % 1000 + 1, b = rand() % 1000 + 1;
         char correct_answer[16], computed[16], roman_a[16], roman_b[16];
-
+        printf("%i + %i = %i\n", a, b, a + b);
         int_to_roman_numeral(roman_a, a);
+        printf("roman_a %s\n", roman_a);
         ck_assert_int_eq(a, roman_numeral_to_int(roman_a));
         int_to_roman_numeral(roman_b, b);
+        printf("roman_b %s\n", roman_b);
+        
         ck_assert_int_eq(b, roman_numeral_to_int(roman_b));
         int_to_roman_numeral(correct_answer, a + b);
         add_roman_numerals(computed, roman_a, roman_b);
-        printf("%i + %i = %i\n", a, b, a + b);
+
         ck_assert_str_eq(correct_answer, computed);
     }
 }
@@ -173,7 +176,7 @@ Suite *roman_numeral_calculator_suite(void)
     Suite *test_suite = suite_create("Roman Numeral Calculator");
     TCase *tc_core = tcase_create("Core");
 
-    tcase_add_test(tc_core, can_count_number_of_occurrences_in_string);
+    tcase_add_test(tc_core, can_count_max_number_of_occurrences_in_string);
     tcase_add_test(tc_core, when_is_roman_numeral_valid_is_passed_one_digit_correct_response_returned);
     tcase_add_test(tc_core, when_is_roman_numeral_valid_is_passed_multiple_digits_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_digit_value_is_passed_value_correct_response_returned);

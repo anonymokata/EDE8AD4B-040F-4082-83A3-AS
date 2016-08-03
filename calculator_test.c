@@ -1,5 +1,7 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <stdbool.h>
+#include <time.h>
 
 #include <check.h>
 #include "calculator.h"
@@ -146,6 +148,26 @@ START_TEST(can_subtract_roman_numerals)
 }
 END_TEST
 
+START_TEST(can_handle_random_inputs)
+{
+    srand(time(NULL));
+
+    for(int i = 0; i < 1000; ++i) {
+        int a = rand() % 1000 + 1, b = rand() % 1000 + 1;
+        char correct_answer[16], computed[16], roman_a[16], roman_b[16];
+
+        int_to_roman_numeral(roman_a, a);
+        ck_assert_int_eq(a, roman_numeral_to_int(roman_a));
+        int_to_roman_numeral(roman_b, b);
+        ck_assert_int_eq(b, roman_numeral_to_int(roman_b));
+        int_to_roman_numeral(correct_answer, a + b);
+        add_roman_numerals(computed, roman_a, roman_b);
+        printf("%i + %i = %i\n", a, b, a + b);
+        ck_assert_str_eq(correct_answer, computed);
+    }
+}
+END_TEST
+
 Suite *roman_numeral_calculator_suite(void)
 {
     Suite *test_suite = suite_create("Roman Numeral Calculator");
@@ -161,6 +183,7 @@ Suite *roman_numeral_calculator_suite(void)
     tcase_add_test(tc_core, when_int_to_roman_numeral_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, can_add_roman_numerals);
     tcase_add_test(tc_core, can_subtract_roman_numerals);
+    tcase_add_test(tc_core, can_handle_random_inputs);
     suite_add_tcase(test_suite, tc_core);
 
     return test_suite;

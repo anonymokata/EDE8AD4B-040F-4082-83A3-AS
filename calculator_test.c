@@ -33,6 +33,9 @@ START_TEST(when_is_valid_roman_numeral_is_passed_multiple_digits_correct_respons
     ck_assert_int_eq(is_valid_roman_numeral("XVI"), true);
     ck_assert_int_eq(is_valid_roman_numeral("MI"), true);
     ck_assert_int_eq(is_valid_roman_numeral("DXLIV"), true);
+    
+    ck_assert_int_eq(is_valid_roman_numeral("IIII"), false);
+    ck_assert_int_eq(is_valid_roman_numeral("IIIX"), false);
 
     ck_assert_int_eq(is_valid_roman_numeral("This should be invalid"), false);
     ck_assert_int_eq(is_valid_roman_numeral("INVALID"), false);

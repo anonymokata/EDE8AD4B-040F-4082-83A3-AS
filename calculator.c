@@ -4,7 +4,12 @@
 #include "calculator.h"
 
 int count_occurrences(const char *str, const char c) {
-    
+    char *current = (char*)str;
+    int occurrences = 0;
+    while(*current != '\0') {
+        occurrences += *(current++) == c;
+    }
+    return occurrences;
 }
 
 bool is_valid_roman_numeral(const char *str) {
@@ -13,6 +18,12 @@ bool is_valid_roman_numeral(const char *str) {
     for(int i = 0; i < strlen(str); ++i)
         if(strchr(valid_chars, str[i]) == NULL)
             return false; //fail early
+    if(count_occurrences(str, 'I') > 3) return false;
+    if(count_occurrences(str, 'X') > 3) return false;
+    if(count_occurrences(str, 'C') > 3) return false;
+    if(count_occurrences(str, 'L') > 1) return false;
+    if(count_occurrences(str, 'V') > 1) return false;
+    if(count_occurrences(str, 'D') > 1) return false;
     return true;
 }
 

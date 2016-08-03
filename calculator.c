@@ -1,7 +1,9 @@
 #include <string.h>
+#include <stdio.h>
+
 #include "calculator.h"
 
-bool is_valid_roman_numeral(char str[]) {
+bool is_valid_roman_numeral(const char *str) {
     char valid_chars[] = "IVXLCDM";
 
     for(int i = 0; i < strlen(str); ++i)
@@ -10,7 +12,7 @@ bool is_valid_roman_numeral(char str[]) {
     return true;
 }
 
-int roman_numeral_digit_value(char digit) {
+int roman_numeral_digit_value(const char digit) {
     switch(digit) {
         case 'I': return 1;
         case 'V': return 5;
@@ -23,7 +25,7 @@ int roman_numeral_digit_value(char digit) {
     }                   
 }
 
-int roman_numeral_to_int(char str[]) {
+int roman_numeral_to_int(const char *str) {
     if(is_valid_roman_numeral(str) == false)
         return -1;
     int value = 0;
@@ -42,7 +44,7 @@ int roman_numeral_to_int(char str[]) {
     return value + intermediate; //sum running value and intermediate not subtracted out
 }
 
-const char* next_digit(int value) {
+const char* next_roman_digit(const int value) {
     if(value >= 1000) return "M";
     if(value >= 900) return "CM";
     if(value >= 500) return "D";
@@ -50,7 +52,7 @@ const char* next_digit(int value) {
     if(value >= 100) return "C";
     if(value >= 90) return "XC";
     if(value >= 50) return "L";
-    if(value >= 40) return "L";
+    if(value >= 40) return "XL";
     if(value >= 10) return "X";
     if(value >= 9) return "IX";
     if(value >= 5) return "V";
@@ -59,8 +61,14 @@ const char* next_digit(int value) {
 }
 
 void int_to_roman_numeral(char *out, int value) {
-
-        strcpy(out, "VII");
-
-
+    int current_pos = 0;
+    strcpy(out, "undefined");
+    while(value > 0) {
+        const char *next = next_roman_digit(value);
+        value -= roman_numeral_to_int(next);
+        strncpy(&out[current_pos], next, strlen(next));
+        current_pos += strlen(next);
+        strcpy(&out[current_pos], "\0");
+    }
+   
 }

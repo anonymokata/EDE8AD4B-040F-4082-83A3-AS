@@ -32,7 +32,7 @@ START_TEST(when_is_valid_roman_numeral_is_passed_multiple_digits_correct_respons
     ck_assert_int_eq(is_valid_roman_numeral("XXX"), true);
     ck_assert_int_eq(is_valid_roman_numeral("XVI"), true);
     ck_assert_int_eq(is_valid_roman_numeral("MI"), true);
-    ck_assert_int_eq(is_valid_roman_numeral("VLID"), true);
+    ck_assert_int_eq(is_valid_roman_numeral("DXLIV"), true);
 
     ck_assert_int_eq(is_valid_roman_numeral("This should be invalid"), false);
     ck_assert_int_eq(is_valid_roman_numeral("INVALID"), false);
@@ -71,17 +71,17 @@ START_TEST(when_roman_numeral_to_int_is_passed_value_correct_response_returned)
     ck_assert_int_eq(roman_numeral_to_int("III"), 3);
     ck_assert_int_eq(roman_numeral_to_int("XVI"), 16);
     ck_assert_int_eq(roman_numeral_to_int("MI"), 1001);
-    ck_assert_int_eq(roman_numeral_to_int("VLID"), 544);
+    ck_assert_int_eq(roman_numeral_to_int("DXLIV"), 544);
 }
 END_TEST
 
-START_TEST(when_next_digit_is_passed_value_correct_response_returned)
+START_TEST(when_next_roman_digit_is_passed_value_correct_response_returned)
 {
-    ck_assert_str_eq(next_digit(1), "I");
-    ck_assert_str_eq(next_digit(7), "V");
-    ck_assert_str_eq(next_digit(100), "C");
-    ck_assert_str_eq(next_digit(50), "L");
-    ck_assert_str_eq(next_digit(1001), "M");
+    ck_assert_str_eq(next_roman_digit(1), "I");
+    ck_assert_str_eq(next_roman_digit(7), "V");
+    ck_assert_str_eq(next_roman_digit(100), "C");
+    ck_assert_str_eq(next_roman_digit(50), "L");
+    ck_assert_str_eq(next_roman_digit(1001), "M");
     
 }
 END_TEST
@@ -94,7 +94,7 @@ START_TEST(when_int_to_roman_numeral_is_passed_value_correct_response_returned)
     int_to_roman_numeral(out, 1); ck_assert_str_eq(out, "I");
     int_to_roman_numeral(out, 16); ck_assert_str_eq(out, "XVI");
     int_to_roman_numeral(out, 0); ck_assert_str_eq(out, "undefined");
-    int_to_roman_numeral(out, 54); ck_assert_str_eq(out, "VLID");
+    int_to_roman_numeral(out, 544); ck_assert_str_eq(out, "DXLIV");
     
 }
 END_TEST
@@ -109,7 +109,7 @@ Suite *roman_numeral_calculator_suite(void)
     tcase_add_test(tc_core, when_roman_numeral_digit_value_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_to_int_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_to_int_is_passed_invalid_value_correct_response_returned);
-    tcase_add_test(tc_core, when_next_digit_is_passed_value_correct_response_returned);
+    tcase_add_test(tc_core, when_next_roman_digit_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, when_int_to_roman_numeral_is_passed_value_correct_response_returned);
     suite_add_tcase(test_suite, tc_core);
 

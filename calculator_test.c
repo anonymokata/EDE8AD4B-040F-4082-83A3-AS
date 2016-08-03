@@ -75,14 +75,13 @@ START_TEST(when_roman_numeral_to_int_is_passed_value_correct_response_returned)
 }
 END_TEST
 
-START_TEST(when_first_digit_is_passed_value_correct_response_returned)
+START_TEST(when_next_digit_is_passed_value_correct_response_returned)
 {
-    char out[16];
-    ck_assert_int_eq(first_digit(1), 'I');
-    ck_assert_int_eq(first_digit(7), 'V');
-    ck_assert_int_eq(first_digit(100), 'C');
-    ck_assert_int_eq(first_digit(50), 'L');
-    ck_assert_int_eq(first_digit(1001), 'M');
+    ck_assert_str_eq(next_digit(1), "I");
+    ck_assert_str_eq(next_digit(7), "V");
+    ck_assert_str_eq(next_digit(100), "C");
+    ck_assert_str_eq(next_digit(50), "L");
+    ck_assert_str_eq(next_digit(1001), "M");
     
 }
 END_TEST
@@ -110,7 +109,7 @@ Suite *roman_numeral_calculator_suite(void)
     tcase_add_test(tc_core, when_roman_numeral_digit_value_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_to_int_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_to_int_is_passed_invalid_value_correct_response_returned);
-    tcase_add_test(tc_core, when_first_digit_is_passed_value_correct_response_returned);
+    tcase_add_test(tc_core, when_next_digit_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, when_int_to_roman_numeral_is_passed_value_correct_response_returned);
     suite_add_tcase(test_suite, tc_core);
 

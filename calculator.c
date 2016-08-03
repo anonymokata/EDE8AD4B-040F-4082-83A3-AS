@@ -42,16 +42,25 @@ int roman_numeral_to_int(char str[]) {
     return value + intermediate; //sum running value and intermediate not subtracted out
 }
 
-char first_digit(int value) {
-    if(value < 5) return 'I';
-    if(value < 10) return 'V';
-    if(value < 50) return 'X';
-    if(value < 100) return 'L';
-    if(value < 500) return 'C';
-    if(value < 1000) return 'D';
-    return 'M';
+const char* next_digit(int value) {
+    if(value >= 1000) return "M";
+    if(value >= 900) return "CM";
+    if(value >= 500) return "D";
+    if(value >= 400) return "CD";
+    if(value >= 100) return "C";
+    if(value >= 90) return "XC";
+    if(value >= 50) return "L";
+    if(value >= 40) return "L";
+    if(value >= 10) return "X";
+    if(value >= 9) return "IX";
+    if(value >= 5) return "V";
+    if(value >= 4) return "IV";
+    return "I";
 }
+
 void int_to_roman_numeral(char *out, int value) {
-    strcpy(out, "VII");
+
+        strcpy(out, "VII");
+
 
 }

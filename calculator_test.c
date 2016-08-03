@@ -6,8 +6,9 @@
 
 START_TEST(can_count_number_of_occurrences_in_string)
 {
-
-
+    ck_assert_int_eq(count_occurrences("123", '1'), 1);
+    ck_assert_int_eq(count_occurrences("123", '0'), 0);
+    ck_assert_int_eq(count_occurrences("123123", '2'), 2);
 }
 END_TEST
 

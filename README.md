@@ -1,6 +1,6 @@
 # Roman Numeral Calculator
 
-Develop a C library for performing basic arithmetic operations on Roman Numeral values. Tested with libcheck. Developed with gcc version 4.8.4 on Ubuntu 14.04.
+C library for performing basic arithmetic operations on Roman Numeral values. Tested with libcheck. Developed with gcc version 4.8.4 on Ubuntu 14.04.
 
 ## prerequisites
 * **libcheck** ```sudo apt install check``` on Ubuntu/Debian

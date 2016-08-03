@@ -10,7 +10,9 @@ START_TEST(can_count_max_number_of_consecutive_occurrences_in_string)
 {
     ck_assert_int_eq(max_consecutive("123", '1'), 1);
     ck_assert_int_eq(max_consecutive("123", '0'), 0);
-    ck_assert_int_eq(max_consecutive("123123", '2'), 2);
+    ck_assert_int_eq(max_consecutive("123123", '1'), 1);
+    ck_assert_int_eq(max_consecutive("ccc1c", 'c'), 3);
+    ck_assert_int_eq(max_consecutive("ccc1ccc", 'c'), 3);
 }
 END_TEST
 
@@ -152,20 +154,18 @@ START_TEST(can_handle_random_inputs)
 {
     srand(time(NULL));
 
-    for(int i = 0; i < 1000; ++i) {
-        int a = rand() % 1000 + 1, b = rand() % 1000 + 1;
+    for(int i = 0; i < 10000; ++i) {
+        int a = rand() % 2000 + 1, b = rand() % 2000 + 1;
         char correct_answer[16], computed[16], roman_a[16], roman_b[16];
-        printf("%i + %i = %i\n", a, b, a + b);
+
         int_to_roman_numeral(roman_a, a);
-        printf("roman_a %s\n", roman_a);
-        ck_assert_int_eq(a, roman_numeral_to_int(roman_a));
         int_to_roman_numeral(roman_b, b);
-        printf("roman_b %s\n", roman_b);
-        
+
+        ck_assert_int_eq(a, roman_numeral_to_int(roman_a));
         ck_assert_int_eq(b, roman_numeral_to_int(roman_b));
+
         int_to_roman_numeral(correct_answer, a + b);
         add_roman_numerals(computed, roman_a, roman_b);
-
         ck_assert_str_eq(correct_answer, computed);
     }
 }

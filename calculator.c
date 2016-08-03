@@ -5,11 +5,16 @@
 
 int max_consecutive(const char *str, const char c) {
     char *current = (char*)str;
-    int occurrences = 0;
+    int max_sofar = 0, occurrences = 0;
     while(*current != '\0') {
-        occurrences += *current++ == c;
+        if(*current++ == c) {
+            occurrences++;
+            max_sofar = max_sofar > occurrences ? max_sofar : occurrences;
+        } else {
+            occurrences = 0;
+        }
     }
-    return occurrences;
+    return max_sofar;
 }
 
 bool is_roman_numeral_valid(const char *str) {

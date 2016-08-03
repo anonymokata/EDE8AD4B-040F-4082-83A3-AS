@@ -5,16 +5,15 @@
 
 int max_consecutive(const char *str, const char c) {
     char *current = (char*)str;
-    int max_sofar = 0, occurrences = 0;
+    int max = 0, occurrences = 0;
     while(*current != '\0') {
         if(*current++ == c) {
-            occurrences++;
-            max_sofar = max_sofar > occurrences ? max_sofar : occurrences;
+            max = ++occurrences > max ? occurrences : max;
         } else {
             occurrences = 0;
         }
     }
-    return max_sofar;
+    return max;
 }
 
 bool is_roman_numeral_valid(const char *str) {
@@ -35,7 +34,7 @@ bool is_roman_numeral_valid(const char *str) {
     return true;
 }
 
-int roman_numeral_digit_value(const char digit) {
+int roman_numeral_digit_to_int(const char digit) {
     switch(digit) {
         case 'I': return 1;
         case 'V': return 5;
@@ -44,9 +43,7 @@ int roman_numeral_digit_value(const char digit) {
         case 'C': return 100;
         case 'D': return 500;
         case 'M': return 1000;
-        default:
-            printf("THIS SHOULD NOT HAVE HAPPENED\n"); 
-            return -1;
+        default: return -1; //should never happen
     }                   
 }
 
@@ -56,7 +53,7 @@ int roman_numeral_to_int(const char *str) {
     int value = 0;
     int last_digit = 0;
     for(int i = 0; i < strlen(str); ++i) {
-        int current_digit = roman_numeral_digit_value(str[i]);
+        int current_digit = roman_numeral_digit_to_int(str[i]);
         if(current_digit > last_digit && i > 0) {
             value += current_digit - last_digit * 2; //subtract twice because it was added to value last loop
         } else {
@@ -101,7 +98,6 @@ void add_roman_numerals(char *out, const char *first, const char *second) {
     if(is_roman_numeral_valid(first) && is_roman_numeral_valid(second))
         int_to_roman_numeral(out, roman_numeral_to_int(first) + roman_numeral_to_int(second));
 }
-
 
 void subtract_roman_numerals(char *out, const char *first, const char *second) {
     strcpy(out, "undefined");

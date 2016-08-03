@@ -64,15 +64,15 @@ START_TEST(when_is_roman_numeral_valid_is_passed_multiple_digits_correct_respons
 }
 END_TEST
 
-START_TEST(when_roman_numeral_digit_value_is_passed_value_correct_response_returned)
+START_TEST(when_roman_numeral_digit_to_int_is_passed_value_correct_response_returned)
 {
-    ck_assert_int_eq(roman_numeral_digit_value('I'), 1);
-    ck_assert_int_eq(roman_numeral_digit_value('V'), 5);
-    ck_assert_int_eq(roman_numeral_digit_value('X'), 10);
-    ck_assert_int_eq(roman_numeral_digit_value('L'), 50);
-    ck_assert_int_eq(roman_numeral_digit_value('C'), 100);
-    ck_assert_int_eq(roman_numeral_digit_value('D'), 500);
-    ck_assert_int_eq(roman_numeral_digit_value('M'), 1000);
+    ck_assert_int_eq(roman_numeral_digit_to_int('I'), 1);
+    ck_assert_int_eq(roman_numeral_digit_to_int('V'), 5);
+    ck_assert_int_eq(roman_numeral_digit_to_int('X'), 10);
+    ck_assert_int_eq(roman_numeral_digit_to_int('L'), 50);
+    ck_assert_int_eq(roman_numeral_digit_to_int('C'), 100);
+    ck_assert_int_eq(roman_numeral_digit_to_int('D'), 500);
+    ck_assert_int_eq(roman_numeral_digit_to_int('M'), 1000);
 }
 END_TEST
 
@@ -190,7 +190,7 @@ Suite *roman_numeral_calculator_suite(void)
     tcase_add_test(tc_core, can_count_max_number_of_consecutive_occurrences_in_string);
     tcase_add_test(tc_core, when_is_roman_numeral_valid_is_passed_one_digit_correct_response_returned);
     tcase_add_test(tc_core, when_is_roman_numeral_valid_is_passed_multiple_digits_correct_response_returned);
-    tcase_add_test(tc_core, when_roman_numeral_digit_value_is_passed_value_correct_response_returned);
+    tcase_add_test(tc_core, when_roman_numeral_digit_to_int_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_to_int_is_passed_value_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_to_int_is_passed_invalid_value_correct_response_returned);
     tcase_add_test(tc_core, when_next_roman_digit_is_passed_value_correct_response_returned);

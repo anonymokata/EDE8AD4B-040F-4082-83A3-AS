@@ -67,10 +67,16 @@ START_TEST(when_roman_numeral_to_int_is_passed_value_correct_response_returned)
 {
     ck_assert_int_eq(roman_numeral_to_int("VI"), 6);
     ck_assert_int_eq(roman_numeral_to_int("IV"), 4);
+    ck_assert_int_eq(roman_numeral_to_int("XIV"), 14);
     ck_assert_int_eq(roman_numeral_to_int("XXX"), 30);
     ck_assert_int_eq(roman_numeral_to_int("III"), 3);
     ck_assert_int_eq(roman_numeral_to_int("XVI"), 16);
     ck_assert_int_eq(roman_numeral_to_int("MI"), 1001);
+    ck_assert_int_eq(roman_numeral_to_int("XLIV"), 44);
+    ck_assert_int_eq(roman_numeral_to_int("DXL"), 540);
+    ck_assert_int_eq(roman_numeral_to_int("DXLI"), 541);
+    ck_assert_int_eq(roman_numeral_to_int("DXLII"), 542);
+    ck_assert_int_eq(roman_numeral_to_int("DXLIII"), 543);
     ck_assert_int_eq(roman_numeral_to_int("DXLIV"), 544);
 }
 END_TEST
@@ -94,6 +100,10 @@ START_TEST(when_int_to_roman_numeral_is_passed_value_correct_response_returned)
     int_to_roman_numeral(out, 1); ck_assert_str_eq(out, "I");
     int_to_roman_numeral(out, 16); ck_assert_str_eq(out, "XVI");
     int_to_roman_numeral(out, 0); ck_assert_str_eq(out, "undefined");
+    int_to_roman_numeral(out, 540); ck_assert_str_eq(out, "DXL");
+    int_to_roman_numeral(out, 541); ck_assert_str_eq(out, "DXLI");
+    int_to_roman_numeral(out, 44); ck_assert_str_eq(out, "XLIV");
+    int_to_roman_numeral(out, 144); ck_assert_str_eq(out, "CXLIV");
     int_to_roman_numeral(out, 544); ck_assert_str_eq(out, "DXLIV");
     
 }

@@ -21,7 +21,9 @@ int roman_numeral_digit_value(const char digit) {
         case 'C': return 100;
         case 'D': return 500;
         case 'M': return 1000;
-        default: return -1;
+        default:
+            printf("THIS SHOULD NOT HAVE HAPPENED\n"); 
+            return -1;
     }                   
 }
 
@@ -37,8 +39,10 @@ int roman_numeral_to_int(const char *str) {
             value += current_digit - intermediate;
             intermediate = 0;
         } else {
-            intermediate += current_digit;
+            value += current_digit;
         }
+        printf("%s -> intermediate: %i, value: %i\n", str, intermediate, value);
+        
         last_digit = current_digit;
     }    
     return value + intermediate; //sum running value and intermediate not subtracted out

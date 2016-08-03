@@ -3,6 +3,10 @@
 
 #include "calculator.h"
 
+int count_occurrences(const char *str, const char c) {
+    
+}
+
 bool is_valid_roman_numeral(const char *str) {
     char valid_chars[] = "IVXLCDM";
 

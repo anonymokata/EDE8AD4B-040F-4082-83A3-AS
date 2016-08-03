@@ -1,6 +1,7 @@
 #include <stdbool.h>
 
 bool is_valid_roman_numeral(const char *str);
+int count_occurrences(const char *str, const char c);   
 int roman_numeral_digit_value(const char digit);
 int roman_numeral_to_int(const char *str);
 const char* next_roman_digit(const int value);

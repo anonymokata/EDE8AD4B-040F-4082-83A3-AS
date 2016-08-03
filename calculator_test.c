@@ -4,6 +4,13 @@
 #include <check.h>
 #include "calculator.h"
 
+START_TEST(can_count_number_of_occurrences_in_string)
+{
+
+
+}
+END_TEST
+
 START_TEST(when_is_valid_roman_numeral_is_passed_one_digit_correct_response_returned)
 {
     ck_assert_int_eq(is_valid_roman_numeral("I"), true);
@@ -139,6 +146,7 @@ Suite *roman_numeral_calculator_suite(void)
     Suite *test_suite = suite_create("Roman Numeral Calculator");
     TCase *tc_core = tcase_create("Core");
 
+    tcase_add_test(tc_core, can_count_number_of_occurrences_in_string);
     tcase_add_test(tc_core, when_is_valid_roman_numeral_is_passed_one_digit_correct_response_returned);
     tcase_add_test(tc_core, when_is_valid_roman_numeral_is_passed_multiple_digits_correct_response_returned);
     tcase_add_test(tc_core, when_roman_numeral_digit_value_is_passed_value_correct_response_returned);

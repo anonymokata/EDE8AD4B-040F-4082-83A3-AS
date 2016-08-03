@@ -156,17 +156,28 @@ START_TEST(can_handle_random_inputs)
 
     for(int i = 0; i < 10000; ++i) {
         int a = rand() % 2000 + 1, b = rand() % 2000 + 1;
-        char correct_answer[16], computed[16], roman_a[16], roman_b[16];
+        int c = rand() % 2000 + 1, d = rand() % 2000 + 1;
+        
+        char correct_answer_add[16], computed_add[16], roman_a[16], roman_b[16];
+        char correct_answer_sub[16], computed_sub[16], roman_c[16], roman_d[16];
 
         int_to_roman_numeral(roman_a, a);
         int_to_roman_numeral(roman_b, b);
+        int_to_roman_numeral(roman_c, c);
+        int_to_roman_numeral(roman_d, d);
 
         ck_assert_int_eq(a, roman_numeral_to_int(roman_a));
         ck_assert_int_eq(b, roman_numeral_to_int(roman_b));
+        ck_assert_int_eq(c, roman_numeral_to_int(roman_c));
+        ck_assert_int_eq(d, roman_numeral_to_int(roman_d));
 
-        int_to_roman_numeral(correct_answer, a + b);
-        add_roman_numerals(computed, roman_a, roman_b);
-        ck_assert_str_eq(correct_answer, computed);
+        int_to_roman_numeral(correct_answer_add, a + b);
+        add_roman_numerals(computed_add, roman_a, roman_b);
+        ck_assert_str_eq(correct_answer_add, computed_add);
+
+        int_to_roman_numeral(correct_answer_sub, c - d);
+        subtract_roman_numerals(computed_sub, roman_c, roman_d);
+        ck_assert_str_eq(correct_answer_sub, computed_sub);
     }
 }
 END_TEST

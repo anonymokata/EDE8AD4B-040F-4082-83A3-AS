@@ -97,16 +97,14 @@ void int_to_roman_numeral(char *out, int value) {
 }
 
 void add_roman_numerals(char *out, const char *first, const char *second) {
-    if(!is_roman_numeral_valid(first) || !is_roman_numeral_valid(second)) {
-        return;
-    }
-    int_to_roman_numeral(out, roman_numeral_to_int(first) + roman_numeral_to_int(second));
+    strcpy(out, "undefined");
+    if(is_roman_numeral_valid(first) && is_roman_numeral_valid(second))
+        int_to_roman_numeral(out, roman_numeral_to_int(first) + roman_numeral_to_int(second));
 }
 
 
 void subtract_roman_numerals(char *out, const char *first, const char *second) {
-    if(!is_roman_numeral_valid(first) || !is_roman_numeral_valid(second)) {
-        return;
-    }
-    int_to_roman_numeral(out, roman_numeral_to_int(first) - roman_numeral_to_int(second));
+    strcpy(out, "undefined");
+    if(is_roman_numeral_valid(first) && is_roman_numeral_valid(second))
+        int_to_roman_numeral(out, roman_numeral_to_int(first) - roman_numeral_to_int(second));
 }

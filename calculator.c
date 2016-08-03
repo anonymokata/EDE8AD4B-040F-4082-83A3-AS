@@ -31,21 +31,17 @@ int roman_numeral_to_int(const char *str) {
     if(is_valid_roman_numeral(str) == false)
         return -1;
     int value = 0;
-    int intermediate = 0; //intermediate value used in case subtraction is needed
     int last_digit = 0;
     for(int i = 0; i < strlen(str); ++i) {
         int current_digit = roman_numeral_digit_value(str[i]);
         if(current_digit > last_digit && i > 0) {
-            value += current_digit - intermediate;
-            intermediate = 0;
+            value += current_digit - last_digit * 2; //subtract twice because it was added to value last loop
         } else {
             value += current_digit;
         }
-        printf("%s -> intermediate: %i, value: %i\n", str, intermediate, value);
-        
         last_digit = current_digit;
     }    
-    return value + intermediate; //sum running value and intermediate not subtracted out
+    return value;
 }
 
 const char* next_roman_digit(const int value) {

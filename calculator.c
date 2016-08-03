@@ -75,5 +75,5 @@ void int_to_roman_numeral(char *out, int value) {
 
 void add_roman_numerals(char *out, const char *first, const char *second) {
 
-    strcpy(&out, "II");
+    strcpy(out, "II");
 }
